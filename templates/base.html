@@ -1,10 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
-</head>
-<body>
-$END$
+<html lang="ko">
+
+{% include 'head.html' %}
+
+<body style="font-family: 'NanumSquareR';">
+
+    {% include 'header.html' %}
+
+    <hr>
+
+    {% block content %}
+    {% endblock %}
+
+    <hr>
+    {% include 'footer.html' %}
+
 </body>
 </html>
