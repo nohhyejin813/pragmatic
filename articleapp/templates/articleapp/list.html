@@ -13,6 +13,11 @@
       align-items: center;
       border-radius: 1rem;
     }
+    .container img {
+        width: 100%;
+        border-radius: 1rem;
+    }
+    /*
     .container div img {
         border-radius: 1rem;
     }
@@ -20,50 +25,33 @@
     .container img{
         width: 100%;
     }
+    */
+
 
 </style>
 
+    {% if article_list %}
     <div class="container">
-      <div class="item1">
-          <img src="https://picsum.photos/200/300" alt="">
-      </div>
-      <div>
-          <img src="https://picsum.photos/200/340" alt="">
-      </div>
-      <div>
-          <img src="https://picsum.photos/200/260" alt="">
-      </div>
-      <div>
-          <img src="https://picsum.photos/200/301" alt="">
-      </div>
-      <div>
-          <img src="https://picsum.photos/200/302" alt="">
-      </div>
-      <div>
-          <img src="https://picsum.photos/200/303" alt="">
-      </div>
-      <div>
-          <img src="https://picsum.photos/200/304" alt="">
-      </div>
-      <div>
-          <img src="https://picsum.photos/200/305" alt="">
-      </div>
-      <div>
-          <img src="https://picsum.photos/200/307" alt="">
-      </div>
-      <div>
-          <img src="https://picsum.photos/200/308" alt="">
-      </div>
-      <div>
-          <img src="https://picsum.photos/200/309" alt="">
-      </div>
-      <div>
-          <img src="https://picsum.photos/200/310" alt="">
-      </div>
-      <div>
-          <img src="https://picsum.photos/200/322" alt="">
-      </div>
+        {% for article in article_list %}
+        <a href="{% url 'articleapp:detail' pk=article.pk %}">
+            {% include 'snippets/card.html' with article=article %}
+        </a>
+        {% endfor %}
+    </div>
+        <script src="{% static 'js/magicgrid.js' %}"></script>
+    {% else %}
+    <div class="text-center">
+        <h1>No Articles Yet....</h1>
+    </div>
+    {% endif %}
+
+    {% include 'snippets/pagination.html' with page_obj=page_obj %}
+
+    <div style="text-align: center">
+        <a href="{% url 'articleapp:create' %}" class="btn btn-dark rounded-pill col-3 mb-3">
+            Create Article
+        </a>
     </div>
 
-<script src="{% static 'js/magicgrid.js' %}"></script>
+
 {% endblock %}
