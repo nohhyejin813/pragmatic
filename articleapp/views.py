@@ -3,10 +3,12 @@ from django.shortcuts import render
 from django.urls import reverse, reverse_lazy
 from django.utils.decorators import method_decorator
 from django.views.generic import CreateView, DetailView, UpdateView, DeleteView, ListView
+from django.views.generic.edit import FormMixin
 
 from articleapp.decorators import articl_ownership_required
 from articleapp.forms import ArticleCreationForm
 from articleapp.models import Article
+from commentapp.forms import CommentCreationForm
 
 
 # Create your views here.
@@ -31,8 +33,9 @@ class ArticleCreateView(CreateView):
 
 
 
-class ArticleDetailView(DetailView):
+class ArticleDetailView(DetailView, FormMixin):
     model = Article
+    form_class = CommentCreationForm
     context_object_name = 'target_article'
     template_name = 'articleapp/detail.html'
 
