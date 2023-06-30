@@ -3,7 +3,7 @@ from django.http import HttpResponseForbidden
 from articleapp.models import Article
 
 
-def articl_ownership_required(func):
+def article_ownership_required(func):
     def decorated(request, *args, **kwargs):
         article = Article.objects.get(pk=kwargs['pk'])
         if not article == request.user:
