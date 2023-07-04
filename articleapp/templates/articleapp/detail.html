@@ -18,9 +18,6 @@
                 {{ target_article.content | safe}}
             </div>
 
-
-            {#writer ===== {{ target_article.writer}} === {{ user }}#}
-
             {% if target_article.writer == user %}
             <a href="{% url 'articleapp:update' pk=target_article.pk %}"
                 class="btn btn-primary rounded-pill clo-3"
