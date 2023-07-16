@@ -2,6 +2,8 @@ FROM python:3.9.17
 
 WORKDIR /home/
 
+RUN echo "testing"
+
 RUN git clone https://github.com/nohhyejin813/pragmatic.git
 
 WORKDIR /home/pragmatic/
