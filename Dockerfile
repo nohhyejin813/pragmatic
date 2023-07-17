@@ -2,7 +2,7 @@ FROM python:3.9.17
 
 WORKDIR /home/
 
-RUN echo "testing"
+RUN echo "abcd"
 
 RUN git clone https://github.com/nohhyejin813/pragmatic.git
 
@@ -20,4 +20,6 @@ RUN python manage.py collectstatic
 
 EXPOSE 8000
 
-CMD ["bash", "-c", "python manage.py migrate --settings=pragmatic.settings.deploy && python manage.py migrate --settings=pragmatic.settings.deploy && gunicorn pragmatic.wsgi --env DJANGO_SETTINGS_MODULE=pragmatic.settings.deploy --bind 0.0.0.0:8000"]
+CMD ["bash", "-c", "python manage.py migrate --settings=pragmatic.settings.deploy && gunicorn pragmatic.wsgi --env DJANGO_SETTINGS_MODULE=pragmatic.settings.deploy --bind 0.0.0.0:8000"]
+
+
