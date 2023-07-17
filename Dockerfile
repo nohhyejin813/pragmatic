@@ -2,7 +2,7 @@ FROM python:3.9.17
 
 WORKDIR /home/
 
-RUN echo "abcd"
+RUN echo "test"
 
 RUN git clone https://github.com/nohhyejin813/pragmatic.git
 
